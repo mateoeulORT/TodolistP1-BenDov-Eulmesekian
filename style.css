@@ -1,0 +1,32 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid black;
+}
+
+main{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+
+.lista{
+    width: 50%;
+}
+
+.interacciones{
+    width: 20%;
+}
+.interacciones button{
+    width: 100%;
+    padding: 3%;
+
+}
+
+.tarea{
+    display: flex;
+    justify-content: space-around;
+}   
+
+.formulario-tarea{
+    display: none;
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <header></header>       
+
+    <main>
+
+        <section class="lista">      
+
+            <h2>To do list</h2>
+            <div class="tarea">             
+                <h3>Jugar al formula 1 anashei y ganar en barhein</h3>
+                <p>02/03/2025 11:24am</p>
+                <button class="eliminar"> |_|</button>
+            </div>
+            
+        </section>
+
+        <section class="interacciones">
+
+            <button class="agregar-tarea" onclick="AgregarTarea()">+</button>
+            
+            <div id="formulario-tarea" class="formulario-tarea">
+                <h2>Agregar nueva tarea</h2>
+                <form id="nuevoFormulario" class="form">
+                    <label for="tarea">Descripcion:</label>
+                    <input type="text" id="tarea" name="tarea" required>
+        
+                    <label for="fecha">Fecha y hora:</label>
+                    <input type="datetime-local" id="fecha" name="fecha" required>
+        
+                    <button type="submit">Agregar tarea</button>
+                </form>
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+    <footer></footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
