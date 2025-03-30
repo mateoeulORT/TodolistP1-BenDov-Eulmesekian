@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></head>
 
 <body>
     
     <header></header>       
 
     <main>
+        <section class="menu">
+            <div class="logo"> 
+                <img src="logo.png" alt="">
+                <h3>EFSIFY</h3>
+            </div>
+            <button class="agregar"><i class="fas fa-plus"></i> Añadir tarea</button>
+            <button class="borrar"><i class="fas fa-trash"></i> Eliminar completadas</button>
+            <button class="filtrar"><i class="fas fa-filter"></i> Filtrar</button>
+            <button class="veloz"><i class="fas fa-bolt"></i> Más veloz</button>
+        </section>
+
 
         <section class="lista">      
-
             <h2>To do list</h2>
             <div class="tarea">             
                 <h3>Jugar al formula 1 anashei y ganar en barhein</h3>
@@ -24,25 +34,6 @@
             
         </section>
 
-        <section class="interacciones">
-
-            <button class="agregar-tarea" onclick="AgregarTarea()">+</button>
-            
-            <div id="formulario-tarea" class="formulario-tarea">
-                <h2>Agregar nueva tarea</h2>
-                <form id="nuevoFormulario" class="form">
-                    <label for="tarea">Descripcion:</label>
-                    <input type="text" id="tarea" name="tarea" required>
-        
-                    <label for="fecha">Fecha y hora:</label>
-                    <input type="datetime-local" id="fecha" name="fecha" required>
-        
-                    <button type="submit">Agregar tarea</button>
-                </form>
-            </div>
-
-
-        </section>
 
 
     </main>
