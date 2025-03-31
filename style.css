@@ -1,3 +1,7 @@
+*{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif    ;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -27,7 +31,7 @@ main{
 
 
 .menu{
-    background-color: rgb(255, 225, 249);
+    background-color: rgb(253, 231, 249);
     width: 20%;
     height: 100vh;
     display: flex;
@@ -59,4 +63,52 @@ main{
 }
 .veloz i{
     color: rgb(255, 255, 0);
+}
+
+
+.lista{
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 50%;
+    display: block;
+}
+.lista h1{
+    font-size: 2vi;
+    margin-bottom: 0;
+}
+
+.tarea {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.tarea div{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+.tarea div p{
+    margin-left: 1%;
+    font-size: 1vi;
+    display: flex;
+    align-items: center;
+}
+
+.tarea button{
+    border: none;
+    background-color: white;
+    padding: 0;
+}
+.tarea i{
+    transition: transform 0.1s ease-out, scale 0.1s ease-out, color 0.1s ease-out;
+}
+.tarea i:hover{
+    scale: 1.3;
+    color: rgb(197, 0, 0);    
+    transform: rotate(25deg);
+}
+
+
+.agregar-tarea{
+    display: none;
 }
