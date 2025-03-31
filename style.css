@@ -42,14 +42,14 @@ main{
     font-size: medium;
     padding-top: 5%;
     padding-bottom: 5%;
-    background-color: rgb(255, 225, 249);
+    background-color: rgb(253, 231, 249);
     display: flex; 
     align-items: center; 
     gap: 10px;
     padding-left: 8%;
 }
 .menu button:hover{
-    background-color: rgb(240, 202, 232);
+    background-color: rgb(230, 210, 226);
 }
 
 .agregar i{
@@ -111,4 +111,40 @@ main{
 
 .agregar-tarea{
     display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.agregar-tarea p{
+    margin-bottom: 1%;
+    font-size: 1vi;
+}
+
+.agregar-tarea input{
+    width: 60%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+  
+input:focus{
+    outline: none;
+    border-color: #ff00ff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+.agregar-tarea button{
+    border: none;
+    background-color: rgb(23, 153, 23);
+    padding: 1%;
+    width: 10%;
+    border-radius: 5px;
+}
+.agregar-tarea button:hover{
+    background-color: rgb(20, 129, 20);
+}
+.agregar-tarea i{
+    color: white;
 }

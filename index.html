@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EFSIFY</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -51,9 +51,9 @@
         <section class="agregar-tarea lista" id="agregrar-tarea">
             <h1>Agregar tarea</h1>
             <hr>
-            <form action="" id="agregar">
+            <form action="" id="formulario" onsubmit="Formulario()"> 
                 <p>Ingrese la tarea</p>
-                <input type="text">
+                <input type="text" id="ingreso" autocomplete="off" onkeyup="ValidarVacio()">
                 <button type="submit"> <i class="fas fa-plus"></i> </button>
 
             </form>
