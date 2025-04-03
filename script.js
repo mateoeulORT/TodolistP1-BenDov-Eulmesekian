@@ -9,7 +9,7 @@ class Tarea {
 
 let listaTareas = []
 
-
+console.log(listaTareas )
 //iguala la lista a los valores del local storage
 for (let i = 0; i < localStorage.length; i++) {
     //obtiene la key
@@ -37,39 +37,50 @@ function Formulario(){
     } 
     else
     {
-        event.preventDefault();
         let textoIngresado = document.getElementById("ingreso").value
         let tarea = new Tarea(textoIngresado)
         listaTareas.push(tarea)
         localStorage.setItem(tarea.fechaCreacion, JSON.stringify(tarea))
         AgregarTareaNueva(listaTareas)
+        
     }    
 
 }
 
 
 function MostrarTareas(lista)
-{   
+{  
+
+    lista.sort((a, b) => new Date(a.fechaCreacion) - new Date(b.fechaCreacion))
 
     for (const tareañ of lista) {
-
         const tareaf = localStorage.getItem(tareañ.fechaCreacion)
         const objetoTarea = JSON.parse(tareaf)
-        document.getElementById("lista").innerHTML += `<div class="tarea"> <div> <input type="checkbox"> <p> ${objetoTarea.descripcion} </p> </div> <p> ${objetoTarea.fechaCreacion} </p> <button class="eliminar"> <i class="fas fa-trash"></i> </button> </div>`
+        document.getElementById("lista").innerHTML += 
+        `<div class="tarea"> 
+            <div> 
+                <input type="checkbox" > 
+                <p id="${objetoTarea.fechaCreacion}"> ${objetoTarea.descripcion} </p> 
+            </div> 
+            <p> ${objetoTarea.fechaCreacion} </p> 
+            <button class="eliminar"> <i class="fas fa-trash"></i> </button> 
+        </div>`
     }
-    
+}   
+
+
+
+function TacharCompletada(fecha)
+{   
+    console.log("sadasdasdsa")
+    let descripcionTarea = document.getElementById(fecha);  
+    if (checkbox.checked) {
+        descripcionTarea.style.textDecoration = "line-through";
+    } else {
+        descripcionTarea.style.textDecoration = "none";
+    }
+
 }
-
-function AgregarTareaNueva(lista)
-{
-    document.getElementById("lista").style.display = "block"
-    document.getElementById("agregrar-tarea").style.display = "none"
-
-    let tareaNueva = lista[lista.length - 1]
-    document.getElementById("lista").innerHTML += `<div class="tarea"> <div> <input type="checkbox"> <p> ${tareaNueva.descripcion} </p> </div> <p> ${tareaNueva.fechaCreacion} </p> <button class="eliminar"> <i class="fas fa-trash"></i> </button> </div>`
-}
-
-
 
 function ValidarVacio()
 {
