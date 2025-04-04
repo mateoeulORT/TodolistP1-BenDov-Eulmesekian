@@ -57,28 +57,46 @@ function MostrarTareas(lista)
         const tareaf = localStorage.getItem(tareañ.fechaCreacion)
         const objetoTarea = JSON.parse(tareaf)
         document.getElementById("lista").innerHTML += 
-        `<div class="tarea"> 
+        `<div class="tarea" id="${objetoTarea.fechaCreacion}"> 
             <div> 
-                <input type="checkbox" > 
-                <p id="${objetoTarea.fechaCreacion}"> ${objetoTarea.descripcion} </p> 
+                <input type="checkbox" id="checkbox-${objetoTarea.fechaCreacion}" onchange="TacharCompletada('${objetoTarea.fechaCreacion}')"> 
+                <p id="descripcion-${objetoTarea.fechaCreacion}"> ${objetoTarea.descripcion} </p> 
             </div> 
             <p> ${objetoTarea.fechaCreacion} </p> 
-            <button class="eliminar"> <i class="fas fa-trash"></i> </button> 
+            <button class="eliminar" onclick="EliminarTarea('${objetoTarea.fechaCreacion}')"> <i class="fas fa-trash"></i> </button> 
         </div>`
     }
 }   
 
+function EliminarTarea(fecha) {
+    localStorage.removeItem(fecha)
+    document.getElementById(fecha).remove()
 
+    
+}
 
 function TacharCompletada(fecha)
 {   
-    console.log("sadasdasdsa")
-    let descripcionTarea = document.getElementById(fecha);  
-    if (checkbox.checked) {
-        descripcionTarea.style.textDecoration = "line-through";
-    } else {
-        descripcionTarea.style.textDecoration = "none";
+    const chechBox = document.getElementById(`checkbox-${fecha}`)
+    const descripcionTarea = document.getElementById(`descripcion-${fecha}`)
+
+    tareaModificada = listaTareas.find(tarea => tarea.fechaCreacion == fecha)
+
+    if (chechBox.checked) {
+        descripcionTarea.style.textDecoration = "line-through"
+        tareaModificada.completada = true
+        tareaModificada.fechaCompletada = new Date().toLocaleString()
+        localStorage.setItem(tareaModificada.fechaCreacion, JSON.stringify(tareaModificada))
     }
+    else
+    {
+        descripcionTarea.style.textDecoration = "" 
+        tareaModificada.completada = false
+        tareaModificada.fechaCompletada = null
+        localStorage.setItem(tareaModificada.fechaCreacion, JSON.stringify(tareaModificada))       
+    }
+
+
 
 }
 
