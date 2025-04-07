@@ -12,7 +12,6 @@ main{
     justify-content: flex-start;
 }
 
-
 .logo{
     display: flex;
     justify-content:flex-start;
@@ -58,14 +57,35 @@ main{
 .borrar i{
     color: red;
 }
-.filtrar i{
-    color: rgb(228, 23, 228);
-}
 .veloz i{
     color: rgb(255, 255, 0);
 }
 
 
+
+
+
+/*------------- titulo -----------------*/
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.filtrar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 22%;
+    margin-top: 4%;
+}
+
+.filtrar select{
+    margin-left: 4%;
+    border: 1px solid #b1b1b1;
+    border-radius: 6px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
 .lista{
     margin-top: 2%;
     margin-left: 2%;
@@ -75,8 +95,15 @@ main{
 .lista h1{
     font-size: 2vi;
     margin-bottom: 0;
+    margin-right: 10%;
 }
 
+
+
+
+
+
+/*------------- tareas -----------------*/
 .tarea {
      display: flex;
      align-items: center;

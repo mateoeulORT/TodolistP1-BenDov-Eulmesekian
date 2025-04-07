@@ -19,6 +19,7 @@
             <div class="logo"> 
                 <img src="logo.png" alt="">
                 <h3>EFSIFY</h3>
+                
             </div>
 
             <button id="home" onclick="Home()"> <i class="fas fa-home"></i> Home</button>
@@ -27,16 +28,22 @@
 
             <button class="borrar"> <i class="fas fa-trash"></i> Eliminar completadas</button>
 
-            <button class="filtrar"> <i class="fas fa-filter"></i> Filtrar</button>
-
             <button class="veloz"> <i class="fas fa-bolt"></i> Más veloz</button>
         </section>
 
 
         <section class="lista" id="lista">      
-            <h1>To do list</h1>
+            <div class="titulo">
+                <h1>To do list</h1> 
+                <div class="filtrar">
+                    <p>Ordenar por</p>
+                    <select id="opciones" onchange="OrdenarLista()">
+                        <option value="fecha" selected >Fecha creacion</option>
+                        <option value="completadas">completadas</option>
+                    </select>
+                </div>
+            </div>
             <hr>
-            
         </section>
 
         <section class="agregar-tarea lista" id="agregrar-tarea">
