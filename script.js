@@ -21,7 +21,7 @@ for (let i = 0; i < localStorage.length; i++) {
   listaTareas.push(objetoTarea);
 }
 OrdenarLista()
-MostrarTareas();
+
 
 //verificar agregar tarea
 function Formulario() {
@@ -42,8 +42,7 @@ function Formulario() {
 }
 
 function MostrarTareas() {
-
-  
+    
     for (const tareañ of listaTareas) 
     {
         const tareaf = localStorage.getItem(tareañ.fechaCreacion);
@@ -71,9 +70,10 @@ function MostrarTareas() {
   }
 }
 
-function EliminarTarea(fecha) {
-  localStorage.removeItem(fecha);
-  document.getElementById(fecha).remove();
+function EliminarTarea(fecha) 
+{
+    localStorage.removeItem(fecha);
+    document.getElementById(fecha).remove();
 }
 
 function TacharCompletada(fecha) {
@@ -99,6 +99,7 @@ function TacharCompletada(fecha) {
       JSON.stringify(tareaModificada)
     );
   }
+  OrdenarLista()
 }
 
 function ValidarVacio() {
@@ -112,11 +113,12 @@ function ValidarVacio() {
 
 //navegar
 function VentanaTarea() {
-  document.getElementById("lista").style.display = "none";
+
+  document.getElementById("lista-tareas").style.display = "none"
   document.getElementById("agregrar-tarea").style.display = "block";
 }
 function Home() {
-  document.getElementById("lista").style.display = "block";
+  document.getElementById("lista-tareas").style.display = "block";
   document.getElementById("agregrar-tarea").style.display = "none";
 }
 
@@ -124,8 +126,62 @@ function OrdenarLista() {
   let opcionSeleccionada = document.getElementById("opciones").value;
 
   if (opcionSeleccionada == "fecha") 
-  {
+  { 
     listaTareas.sort((a, b) => new Date(a.fechaCreacion) - new Date(b.fechaCreacion))
+  } 
+  else
+  {
+    listaTareas.sort((a, b) => {
+        if (a.completada !== b.completada) {
+          return a.completada - b.completada;
+        }
+        return new Date(a.fechaCreacion) - new Date(b.fechaCreacion);
+      });
   }
-
+  document.getElementById("lista").innerHTML = "";
+  MostrarTareas()
 }
+
+
+function EliminarCompletadas()
+{
+
+    for (const tarean of listaTareas) 
+    {   
+        const tarea = localStorage.getItem(tarean.fechaCreacion);
+        const objetoTarea = JSON.parse(tarea);
+        
+        if (objetoTarea.completada == true) 
+        {
+            localStorage.removeItem(objetoTarea.fechaCreacion);
+        }    
+    }
+    location.reload();
+    
+}
+
+function TareaMasRapida() {
+    let tareaMasRapida = null;
+    let menorTiempo = Infinity;
+  
+    for (const tarea of listaTareas) {
+
+      if (tarea.completada && tarea.fechaCompletada) {
+        const inicio = new Date(tarea.fechaCreacion);
+        const fin = new Date(tarea.fechaCompletada);
+        const tiempo = fin - inicio;
+  
+        if (tiempo < menorTiempo) {
+          menorTiempo = tiempo;
+          tareaMasRapida = tarea;
+        }
+      }
+    }
+    const div = document.getElementById(tareaMasRapida.fechaCreacion);
+    if (div) {
+      div.style.border = "2px solid green"; // podés cambiar color/grosor si querés
+      setTimeout(() => {
+        div.style.border = "";
+      }, 2000);
+    }
+  }

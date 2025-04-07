@@ -26,27 +26,31 @@
 
             <button class="agregar" id="agregar" onclick="VentanaTarea()"> <i class="fas fa-plus"></i> Añadir tarea</button>
 
-            <button class="borrar"> <i class="fas fa-trash"></i> Eliminar completadas</button>
+            <button class="borrar" id="eliminar-completadas" onclick="EliminarCompletadas()" type="submit"> <i class="fas fa-trash"></i> Eliminar completadas</button>
 
-            <button class="veloz"> <i class="fas fa-bolt"></i> Más veloz</button>
+            <button class="veloz" onclick="TareaMasRapida()"> <i class="fas fa-bolt"></i> Más veloz</button>
         </section>
 
-
-        <section class="lista" id="lista">      
+        <div id="lista-tareas" class="lista-tareas">
             <div class="titulo">
                 <h1>To do list</h1> 
                 <div class="filtrar">
                     <p>Ordenar por</p>
                     <select id="opciones" onchange="OrdenarLista()">
                         <option value="fecha" selected >Fecha creacion</option>
-                        <option value="completadas">completadas</option>
+                        <option value="completadas">Completadas</option>
                     </select>
                 </div>
             </div>
             <hr>
-        </section>
+            <section class="lista" id="lista">    </section>
 
-        <section class="agregar-tarea lista" id="agregrar-tarea">
+        </div>
+
+           
+
+       
+        <section class="agregar-tarea lista-tareas" id="agregrar-tarea">
             <h1>Agregar tarea</h1>
             <hr>
             <form action="" id="formulario" onsubmit="Formulario()"> 
